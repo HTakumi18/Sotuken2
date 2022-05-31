@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        // (1)XMLHttpRequestオブジェクトを作成
+        var xhr = new XMLHttpRequest();
+
+        // (2)onreadystatechangeイベントで処理の状況変化を監視
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        }
+
+        let URL
+
+        URL = 'https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=dj00aiZpPTM2cFVJNHhBZDdBMSZzPWNvbnN1bWVyc2VjcmV0Jng9N2Q-&query=nike'
+
+        xhr.withCredentials = true;
+        // (3)HTTPのGETメソッドとアクセスする場所を指定
+        xhr.open('GET', URL, true);
+
+        // (4)HTTPリクエストを送信
+        xhr.send();
+
+    </script>
+</head>
+
+</html>
